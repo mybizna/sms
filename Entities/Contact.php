@@ -5,12 +5,12 @@ namespace Modules\Sms\Entities;
 use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
 
-class Sms extends BaseModel
+class Contact extends BaseModel
 {
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'phone', 'ordering', 'published'];
     public $migrationDependancy = [];
-    protected $table = "sms";
+    protected $table = "sms_contact";
 
     /**
      * List of fields for managing postings.
@@ -21,6 +21,9 @@ class Sms extends BaseModel
     public function migration(Blueprint $table)
     {
         $table->increments('id');
-        $table->string('name');
+        $table->char('name', 255);
+        $table->char('phone', 255);
+        $table->integer('ordering')->default(10);
+        $table->tinyInteger('published')->default(true);
     }
 }

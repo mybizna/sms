@@ -5,12 +5,12 @@ namespace Modules\Sms\Entities;
 use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
 
-class Signiture extends BaseModel
+class Signature extends BaseModel
 {
 
-    protected $fillable = ['name'];
+    protected $fillable = ['title','signature','ordering','published'];
     public $migrationDependancy = [];
-    protected $table = "sms_signiture";
+    protected $table = "sms_signature";
 
     /**
      * List of fields for managing postings.
@@ -21,6 +21,9 @@ class Signiture extends BaseModel
     public function migration(Blueprint $table)
     {
         $table->increments('id');
-        $table->string('name');
+        $table->char('title', 255);
+        $table->string('signature');
+        $table->integer('ordering')->default(10);
+        $table->tinyInteger('published')->default(true);
     }
 }

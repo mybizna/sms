@@ -8,8 +8,8 @@ use Illuminate\Database\Schema\Blueprint;
 class Whitelist extends BaseModel
 {
 
-    protected $fillable = ['name'];
-    public $migrationDependancy = [];
+    protected $fillable = ['contact_id'];
+    public $migrationDependancy = ['sms_contact'];
     protected $table = "sms_whitelist";
 
     /**
@@ -21,6 +21,12 @@ class Whitelist extends BaseModel
     public function migration(Blueprint $table)
     {
         $table->increments('id');
-        $table->string('name');
+        $table->integer('contact_id');
+    }
+    public function post_migration(Blueprint $table)
+    {
+        if (Migration::checkKeyExist('sms_whitelist', 'contact_id')) {
+            $table->foreign('contact_id')->references('id')->on('sms_contact')->nullOnDelete();
+        }
     }
 }

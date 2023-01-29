@@ -2,13 +2,13 @@
 
 namespace Modules\Sms\Entities;
 
-use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
+use Modules\Base\Entities\BaseModel;
 
 class Gateway extends BaseModel
 {
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'url', 'ordering', 'published'];
     public $migrationDependancy = [];
     protected $table = "sms_gateway";
 
@@ -21,6 +21,9 @@ class Gateway extends BaseModel
     public function migration(Blueprint $table)
     {
         $table->increments('id');
-        $table->string('name');
+        $table->char('name', 255);
+        $table->string('url');
+        $table->integer('ordering')->default(10);
+        $table->tinyInteger('published')->default(true);
     }
 }
