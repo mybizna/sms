@@ -4,9 +4,10 @@
         <div class="row">
             <div class="col-md-6">
                 <FormKit v-model="model.id" label="Id" id="id" type="hidden" validation="required" />
-                <FormKit v-model="model.username" label="Username" id="username" type="text" validation="required" />
-                <FormKit v-model="model.password" label="Password" id="password" type="text" validation="required" />
-                <FormKit v-model="model.partner_id" label="Partner" id="partner_id" type="text" validation="required" />
+                <FormKit v-model="model.name" label="Name" id="name" type="text" validation="required" />
+                <FormKit v-model="model.url" label="Url" id="url" type="text" validation="required" />
+                <FormKit v-model="model.ordering" label="Ordering" id="ordering" type="text" validation="required" />
+                <FormKit v-model="model.published" label="Published" id="published" type="text" validation="required" />
             </div>
             <div class="col-md-6">
 
@@ -24,12 +25,13 @@ export default {
     data () {
         return {
             id: null,
-            path_param: ["isp", "subscriber"],
+            path_param: ["sms", "gateway"],
             model: {
                 id: "",
-                username: "",
-                password: "",
-                partner_id: "",
+                name: "",
+                url: "",
+                ordering: "",
+                published: "",
             },
 
         };

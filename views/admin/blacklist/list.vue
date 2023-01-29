@@ -1,6 +1,6 @@
 
 <template>
-    <table-list title="Isp Subscriber" :path_param="path_param" :search_fields="search_fields" :model="model"
+    <table-list title="sms Subscriber" :path_param="path_param" :search_fields="search_fields" :model="model"
         :table_fields="table_fields"></table-list>
 </template>
 
@@ -12,7 +12,7 @@ export default {
     },
     data () {
         return {
-            path_param: ["isp", "subscriber"],
+            path_param: ["sms", "blacklist"],
             model: {
                 id: "",
                 username: "",
@@ -20,19 +20,14 @@ export default {
                 partner_id: "",
             },
             search_fields: [
-                { type: "text", name: "username", label: "Username", ope: "", },
-                { type: "select", name: "partner_id", label: "Partner", ope: "", },
+                { type: "text", name: "contact_id", label: "Contact", ope: "", },
             ],
-            username: "",
-                password: "",
-                partner_id: "",
             table_fields: [
-                { text: "Username", prop: "username", name: "username", },
                 { 
-                    text: "Invoice", 
-                    prop: "[partner__first_name] [partner__last_name]", 
-                    name: "partner_id", 
-                    foreign: ['partner__first_name','partner__last_name',]
+                    text: "Contact", 
+                    prop: "[sms_contact__name] [sms_contact__phone]", 
+                    name: "contact_id", 
+                    foreign: ['sms_contact__name','sms_contact__phone',]
                 },
             ],
         };

@@ -2,13 +2,13 @@
 
 namespace Modules\Sms\Entities;
 
-use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
+use Modules\Base\Entities\BaseModel;
 
 class Signature extends BaseModel
 {
 
-    protected $fillable = ['title','signature','ordering','published'];
+    protected $fillable = ['title', 'signature', 'ordering', 'published'];
     public $migrationDependancy = [];
     protected $table = "sms_signature";
 

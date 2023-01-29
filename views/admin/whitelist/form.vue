@@ -24,7 +24,7 @@ export default {
     data () {
         return {
             id: null,
-            path_param: ["isp", "subscriber"],
+            path_param: ["sms", "whitelist"],
             model: {
                 id: "",
                 username: "",

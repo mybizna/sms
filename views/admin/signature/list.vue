@@ -1,6 +1,6 @@
 
 <template>
-    <table-list title="Isp Subscriber" :path_param="path_param" :search_fields="search_fields" :model="model"
+    <table-list title="Sms Signature" :path_param="path_param" :search_fields="search_fields" :model="model"
         :table_fields="table_fields"></table-list>
 </template>
 
@@ -12,28 +12,28 @@ export default {
     },
     data () {
         return {
-            path_param: ["isp", "subscriber"],
+            path_param: ["sms", "signature"],
             model: {
                 id: "",
-                username: "",
-                password: "",
-                partner_id: "",
+                title: "",
+                signature: "",
+                ordering: "",
+                published: "",
             },
             search_fields: [
-                { type: "text", name: "username", label: "Username", ope: "", },
-                { type: "select", name: "partner_id", label: "Partner", ope: "", },
+                { type: "text", name: "title", label: "Title", ope: "", },
+                { type: "text", name: "signature", label: "Signature", ope: "", },
+                { type: "text", name: "ordering", label: "Ordering", ope: "", },
+                { type: "text", name: "published", label: "Published", ope: "", },
             ],
             username: "",
                 password: "",
                 partner_id: "",
             table_fields: [
-                { text: "Username", prop: "username", name: "username", },
-                { 
-                    text: "Invoice", 
-                    prop: "[partner__first_name] [partner__last_name]", 
-                    name: "partner_id", 
-                    foreign: ['partner__first_name','partner__last_name',]
-                },
+                { text: "Title", prop: "title", name: "title", },
+                { text: "Signature", prop: "signature", name: "signature", },
+                { text: "Ordering", prop: "ordering", name: "ordering", },
+                { text: "Published", prop: "published", name: "published", },
             ],
         };
     }
