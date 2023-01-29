@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Massmail\Entities;
+namespace Modules\Sms\Entities;
 
 use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
