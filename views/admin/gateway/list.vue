@@ -1,34 +1,30 @@
 
 <template>
-    <table-render title="sms Subscriber" :path_param="path_param" :search_fields="search_fields" :model="model"
-        :table_fields="table_fields"></table-render>
+    <table-render :path_param="['sms', 'gateway']" title="sms Subscriber" :table_fields="table_fields">
+
+        <template #header>
+            <th-render>Name</th-render>
+            <th-render>Url</th-render>
+            <th-render>Ordering</th-render>
+            <th-render>Published</th-render>
+        </template>
+
+        <template #body="{ item }">
+            <td>{{ item.tinametle }}</td>
+            <td>{{ item.url }}</td>
+            <td>{{ item.ordering }}</td>
+            <td>{{ item.published }}</td>
+        </template>
+
+    </table-render>
 </template>
 
 <script>
 
 export default {
-    data () {
+    data() {
         return {
-            path_param: ["sms", "gateway"],
-            model: {
-                id: "",
-                name: "",
-                url: "",
-                ordering: "",
-                published: "",
-            },
-            search_fields: [
-                { type: "text", name: "name", label: "Name", ope: "", },
-                { type: "text", name: "url", label: "Url", ope: "", },
-                { type: "text", name: "ordering", label: "Ordering", ope: "", },
-                { type: "text", name: "published", label: "Published", ope: "", },
-            ],
-            table_fields: [
-                { text: "Name", prop: "name", name: "name", },
-                { text: "Url", prop: "url", name: "url", },
-                { text: "Ordering", prop: "ordering", name: "ordering", },
-                { text: "Published", prop: "published", name: "published", },
-            ],
+            table_fields: ['name', 'url', 'ordering', 'published'],
         };
     }
 };

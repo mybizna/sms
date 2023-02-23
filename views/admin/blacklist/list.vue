@@ -1,32 +1,23 @@
 
 <template>
-    <table-render title="sms Subscriber" :path_param="path_param" :search_fields="search_fields" :model="model"
-        :table_fields="table_fields"></table-render>
+    <table-render title="sms Subscriber" :path_param="['sms', 'blacklist']" :table_fields="table_fields">
+        <template #header>
+            <th-render>Contact</th-render>
+        </template>
+
+        <template #body="{ item }">
+            <td>{{ item.contact_id__sms_contact__name }} {{ item.contact_id__sms_contact__phone }}</td>
+        </template>
+
+    </table-render>
 </template>
 
 <script>
 
 export default {
-    data () {
+    data() {
         return {
-            path_param: ["sms", "blacklist"],
-            model: {
-                id: "",
-                username: "",
-                password: "",
-                partner_id: "",
-            },
-            search_fields: [
-                { type: "text", name: "contact_id", label: "Contact", ope: "", },
-            ],
-            table_fields: [
-                { 
-                    text: "Contact", 
-                    prop: "[sms_contact__name] [sms_contact__phone]", 
-                    name: "contact_id", 
-                    foreign: ['sms_contact__name','sms_contact__phone',]
-                },
-            ],
+            table_fields: ['contact_id__sms_contact__name', 'contact_id__sms_contact__phone']
         };
     }
 };
