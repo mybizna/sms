@@ -10,7 +10,7 @@
         </template>
 
         <template #body="{ item }">
-            <td>{{ item.tinametle }}</td>
+            <td>{{ item.name }}</td>
             <td>{{ item.url }}</td>
             <td>{{ item.ordering }}</td>
             <td class="text-center">

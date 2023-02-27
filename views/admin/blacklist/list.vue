@@ -1,6 +1,6 @@
 
 <template>
-    <table-render title="sms Subscriber" :path_param="['sms', 'blacklist']" :table_fields="table_fields">
+    <table-render :path_param="['sms', 'blacklist']" title="sms Subscriber" :table_fields="table_fields">
         <template #header>
             <th-render>Contact</th-render>
         </template>
