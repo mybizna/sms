@@ -1,5 +1,5 @@
 <template>
-    <edit-renderr :path_param="['sms', 'blacklist']" :model="model">
+    <edit-render :path_param="['sms', 'blacklist']" :model="model">
 
         <div class="row">
             <div class="col-md-6">
@@ -13,7 +13,7 @@
             </div>
         </div>
 
-    </edit-renderr>
+    </edit-render>
 </template>
 
 <script>
