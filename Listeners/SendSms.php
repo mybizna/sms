@@ -2,6 +2,7 @@
 
 namespace Modules\Sms\Listeners;
 
+use Modules\Sms\Entities\Queue;
 
 class SendSms
 {
@@ -26,10 +27,12 @@ class SendSms
         $message = $event->message;
         $contact = $event->contact;
 
-        //TODO: Twillo
-        //TODO: Afrikastalking
+        Queue::create([
+            'phone' => $contact,
+            'sms' => $message,
+        ]);
 
-       
+        //TODO: Twillo Afrikastalking
 
     }
 }
