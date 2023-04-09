@@ -6,12 +6,12 @@ use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Classes\Migration;
 use Modules\Base\Entities\BaseModel;
 
-class Queue extends BaseModel
+class Outgoing extends BaseModel
 {
 
     protected $fillable = ['phone', 'sms'];
     public $migrationDependancy = [];
-    protected $table = "sms_queue";
+    protected $table = "sms_outgoing";
 
     /**
      * List of fields for managing postings.
