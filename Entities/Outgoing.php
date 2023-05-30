@@ -22,8 +22,9 @@ class Outgoing extends BaseModel
     public function migration(Blueprint $table)
     {
         $table->increments('id');
-        $table->integer('phone');
+        $table->bigInteger('phone');
         $table->string('sms');
+        $table->tinyInteger('is_sent')->default(false);
     }
 
 }
