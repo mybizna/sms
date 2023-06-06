@@ -22,12 +22,10 @@ class Whitelist extends BaseModel
     public function migration(Blueprint $table)
     {
         $table->increments('id');
-        $table->integer('contact_id');
+        $table->foreignId('contact_id');
     }
     public function post_migration(Blueprint $table)
     {
-        if (Migration::checkKeyExist('sms_whitelist', 'contact_id')) {
-            $table->foreign('contact_id')->references('id')->on('sms_contact')->nullOnDelete();
-        }
+        Migration::addForeign($table, 'sms_contact', 'contact_id');
     }
 }

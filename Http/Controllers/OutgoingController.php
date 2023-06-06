@@ -26,13 +26,15 @@ class OutgoingController extends BaseController
                     ->orderBy('id')
                     ->first();
 
-                $separator = '|';
-                $sms = $record->sms;
-                $phone = $record->phone;
-                $id = str_pad($record->id, 16, " ", STR_PAD_LEFT);
-                $phone = str_pad($record->phone, 16, " ", STR_PAD_LEFT);
+                if($record){
+                    $separator = '|';
+                    $sms = $record->sms;
+                    $phone = $record->phone;
+                    $id = str_pad($record->id, 16, " ", STR_PAD_LEFT);
+                    $phone = str_pad($record->phone, 16, " ", STR_PAD_LEFT);
 
-                $result = $id . $separator . $phone . $separator . $sms;
+                    $result = $id . $separator . $phone . $separator . $sms;                    
+                }
 
             } catch (\Throwable $th) {
                 throw $th;
