@@ -24,7 +24,7 @@ class Outgoing extends BaseModel
         $table->increments('id');
         $table->bigInteger('phone');
         $table->string('sms');
-        $table->tinyInteger('is_sent')->default(false);
+        $table->tinyInteger('is_sent')->nullable()->default(0);
     }
 
 }
