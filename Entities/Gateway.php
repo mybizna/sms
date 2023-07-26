@@ -5,6 +5,9 @@ namespace Modules\Sms\Entities;
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Entities\BaseModel;
 
+use Modules\Core\Classes\Views\ListTable;
+use Modules\Core\Classes\Views\FormBuilder;
+
 class Gateway extends BaseModel
 {
 
@@ -12,6 +15,45 @@ class Gateway extends BaseModel
     public $migrationDependancy = [];
     protected $table = "sms_gateway";
 
+
+    public function listTable(){
+        // listing view fields
+        $fields = new ListTable();
+
+        $fields->name('name')->type('text')->ordering(true);
+        $fields->name('url')->type('text')->ordering(true);
+        $fields->name('ordering')->type('text')->ordering(true);
+        $fields->name('published')->type('switch')->ordering(true);
+
+        return $fields;
+
+    }
+    
+    public function formBuilder(){
+        // listing view fields
+        $fields = new FormBuilder();
+
+        $fields->name('name')->type('text')->group('w-1/2');
+        $fields->name('url')->type('text')->group('w-1/2');
+        $fields->name('ordering')->type('text')->group('w-1/2');
+        $fields->name('published')->type('switch')->group('w-1/2');
+
+        return $fields;
+
+    }
+
+    public function filter(){
+        // listing view fields
+        $fields = new FormBuilder();
+
+        $fields->name('name')->type('text')->group('w-1/6');
+        $fields->name('url')->type('text')->group('w-1/6');
+        $fields->name('ordering')->type('text')->group('w-1/6');
+        $fields->name('published')->type('switch')->group('w-1/6');
+
+        return $fields;
+
+    }
     /**
      * List of fields for managing postings.
      *
