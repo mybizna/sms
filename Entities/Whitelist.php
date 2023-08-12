@@ -49,7 +49,7 @@ class Whitelist extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('contact_id')->type('recordpicker')->table('sms_contact')->ordering(true);
+        $fields->name('contact_id')->type('recordpicker')->table(['sms', 'contact'])->ordering(true);
 
         return $fields;
 
@@ -65,7 +65,7 @@ class Whitelist extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('contact_id')->type('recordpicker')->table('sms_contact')->group('w-1/2');
+        $fields->name('contact_id')->type('recordpicker')->table(['sms', 'contact'])->group('w-1/2');
 
         return $fields;
 
@@ -81,7 +81,7 @@ class Whitelist extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('contact_id')->type('recordpicker')->table('sms_contact')->group('w-1/6');
+        $fields->name('contact_id')->type('recordpicker')->table(['sms', 'contact'])->group('w-1/6');
 
         return $fields;
 
