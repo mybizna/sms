@@ -47,10 +47,10 @@ class Gateway extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('name')->type('text')->ordering(true);
-        $fields->name('url')->type('text')->ordering(true);
-        $fields->name('ordering')->type('text')->ordering(true);
-        $fields->name('published')->type('switch')->ordering(true);
+        $fields->name('name')->html('text')->ordering(true);
+        $fields->name('url')->html('text')->ordering(true);
+        $fields->name('ordering')->html('text')->ordering(true);
+        $fields->name('published')->html('switch')->ordering(true);
 
         return $fields;
 
@@ -66,10 +66,10 @@ class Gateway extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('name')->type('text')->group('w-1/2');
-        $fields->name('url')->type('text')->group('w-1/2');
-        $fields->name('ordering')->type('text')->group('w-1/2');
-        $fields->name('published')->type('switch')->group('w-1/2');
+        $fields->name('name')->html('text')->group('w-1/2');
+        $fields->name('url')->html('text')->group('w-1/2');
+        $fields->name('ordering')->html('text')->group('w-1/2');
+        $fields->name('published')->html('switch')->group('w-1/2');
 
         return $fields;
 
@@ -85,10 +85,10 @@ class Gateway extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('name')->type('text')->group('w-1/6');
-        $fields->name('url')->type('text')->group('w-1/6');
-        $fields->name('ordering')->type('text')->group('w-1/6');
-        $fields->name('published')->type('switch')->group('w-1/6');
+        $fields->name('name')->html('text')->group('w-1/6');
+        $fields->name('url')->html('text')->group('w-1/6');
+        $fields->name('ordering')->html('text')->group('w-1/6');
+        $fields->name('published')->html('switch')->group('w-1/6');
 
         return $fields;
 
@@ -102,10 +102,10 @@ class Gateway extends BaseModel
      */
     public function migration(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->char('name', 255);
-        $table->string('url');
-        $table->integer('ordering')->default(10);
-        $table->tinyInteger('published')->default(true);
+        $this->fields->increments('id');
+        $this->fields->char('name', 255);
+        $this->fields->string('url');
+        $this->fields->integer('ordering')->default(10);
+        $this->fields->tinyInteger('published')->default(true);
     }
 }

@@ -48,10 +48,10 @@ class Signature extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('title')->type('text')->ordering(true);
-        $fields->name('signature')->type('text')->ordering(true);
-        $fields->name('ordering')->type('text')->ordering(true);
-        $fields->name('published')->type('switch')->ordering(true);
+        $fields->name('title')->html('text')->ordering(true);
+        $fields->name('signature')->html('text')->ordering(true);
+        $fields->name('ordering')->html('text')->ordering(true);
+        $fields->name('published')->html('switch')->ordering(true);
 
         return $fields;
 
@@ -67,10 +67,10 @@ class Signature extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('title')->type('text')->group('w-1/2');
-        $fields->name('signature')->type('text')->group('w-1/2');
-        $fields->name('ordering')->type('text')->group('w-1/2');
-        $fields->name('published')->type('switch')->group('w-1/2');
+        $fields->name('title')->html('text')->group('w-1/2');
+        $fields->name('signature')->html('text')->group('w-1/2');
+        $fields->name('ordering')->html('text')->group('w-1/2');
+        $fields->name('published')->html('switch')->group('w-1/2');
 
         return $fields;
 
@@ -86,10 +86,10 @@ class Signature extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('title')->type('text')->group('w-1/6');
-        $fields->name('signature')->type('text')->group('w-1/6');
-        $fields->name('ordering')->type('text')->group('w-1/6');
-        $fields->name('published')->type('switch')->group('w-1/6');
+        $fields->name('title')->html('text')->group('w-1/6');
+        $fields->name('signature')->html('text')->group('w-1/6');
+        $fields->name('ordering')->html('text')->group('w-1/6');
+        $fields->name('published')->html('switch')->group('w-1/6');
 
         return $fields;
 
@@ -102,10 +102,10 @@ class Signature extends BaseModel
      */
     public function migration(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->char('title', 255);
-        $table->string('signature');
-        $table->integer('ordering')->default(10);
-        $table->tinyInteger('published')->default(true);
+        $this->fields->increments('id');
+        $this->fields->char('title', 255);
+        $this->fields->string('signature');
+        $this->fields->integer('ordering')->default(10);
+        $this->fields->tinyInteger('published')->default(true);
     }
 }

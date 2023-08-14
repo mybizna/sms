@@ -48,7 +48,7 @@ class Blacklist extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('contact_id')->type('recordpicker')->table(['sms', 'contact'])->ordering(true);
+        $fields->name('contact_id')->html('recordpicker')->table(['sms', 'contact'])->ordering(true);
 
         return $fields;
 
@@ -64,7 +64,7 @@ class Blacklist extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('contact_id')->type('recordpicker')->table(['sms', 'contact'])->group('w-1/2');
+        $fields->name('contact_id')->html('recordpicker')->table(['sms', 'contact'])->group('w-1/2');
 
         return $fields;
 
@@ -80,7 +80,7 @@ class Blacklist extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('contact_id')->type('recordpicker')->table(['sms', 'contact'])->group('w-1/6');
+        $fields->name('contact_id')->html('recordpicker')->table(['sms', 'contact'])->group('w-1/6');
 
         return $fields;
 
@@ -93,8 +93,8 @@ class Blacklist extends BaseModel
      */
     public function migration(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->foreignId('contact_id');
+        $this->fields->increments('id');
+        $this->fields->foreignId('contact_id');
     }
 
     /**

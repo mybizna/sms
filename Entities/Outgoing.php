@@ -49,8 +49,8 @@ class Outgoing extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('phone')->type('text')->ordering(true);
-        $fields->name('sms')->type('text')->ordering(true);
+        $fields->name('phone')->html('text')->ordering(true);
+        $fields->name('sms')->html('text')->ordering(true);
 
         return $fields;
 
@@ -67,8 +67,8 @@ class Outgoing extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('phone')->type('text')->group('w-1/2');
-        $fields->name('sms')->type('text')->group('w-1/2');
+        $fields->name('phone')->html('text')->group('w-1/2');
+        $fields->name('sms')->html('text')->group('w-1/2');
 
         return $fields;
 
@@ -84,8 +84,8 @@ class Outgoing extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('phone')->type('text')->group('w-1/6');
-        $fields->name('sms')->type('text')->group('w-1/6');
+        $fields->name('phone')->html('text')->group('w-1/6');
+        $fields->name('sms')->html('text')->group('w-1/6');
 
         return $fields;
 
@@ -98,10 +98,10 @@ class Outgoing extends BaseModel
      */
     public function migration(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->bigInteger('phone');
-        $table->string('sms');
-        $table->tinyInteger('is_sent')->nullable()->default(0);
+        $this->fields->increments('id');
+        $this->fields->bigInteger('phone');
+        $this->fields->string('sms');
+        $this->fields->tinyInteger('is_sent')->nullable()->default(0);
     }
 
 }
