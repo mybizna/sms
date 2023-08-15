@@ -48,7 +48,7 @@ class Whitelist extends BaseModel
         $this->fields = $table ?? new Blueprint($this->table);
         
         $this->fields->increments('id')->html('text');
-        $this->fields->foreignId('contact_id')->html('recordpicker')->table(['sms', 'contact']);
+        $this->fields->foreignId('contact_id')->html('recordpicker')->relation(['sms', 'contact']);
     }
 
 }
