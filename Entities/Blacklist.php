@@ -42,10 +42,10 @@ class Blacklist extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->foreignId('contact_id')->html('recordpicker')->table(['sms', 'contact']);
     }

@@ -13,7 +13,7 @@ class Outgoing extends BaseModel
      *
      * @var array<string>
      */
-    protected $fillable = ['phone', 'sms'];
+    protected $fillable = ['phone', 'sms', 'is_sent'];
 
     /**
      * The fields that are to be render when performing relationship queries.
@@ -42,14 +42,27 @@ class Outgoing extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->bigInteger('phone')->html('text');
         $this->fields->string('sms')->html('text');
         $this->fields->tinyInteger('is_sent')->nullable()->default(0)->html('switch');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['phone', 'sms', 'is_sent'],
+            'filter' => ['phone', 'is_sent'],
+        ];
+
+        return $structure;
     }
 
 }

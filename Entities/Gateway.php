@@ -42,14 +42,27 @@ class Gateway extends BaseModel
      *
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->char('name', 255)->html('text');
         $this->fields->string('url')->html('text');
         $this->fields->integer('ordering')->default(10)->html('number');
         $this->fields->tinyInteger('published')->default(true)->html('switch');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['name', 'url', 'ordering', 'published'],
+            'filter' => ['name', 'url', 'published'],
+        ];
+
+        return $structure;
     }
 }
