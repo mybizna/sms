@@ -59,6 +59,10 @@ class Outgoing extends BaseModel
     {
         $structure = [
             'table' => ['phone', 'sms', 'is_sent'],
+            'form' => [
+                ['label' => 'Phone', 'class' => 'w-full', 'fields' => ['phone']],
+                ['label' => 'Contact', 'class' => 'w-1/2', 'fields' => [ 'sms', 'is_sent']],
+            ],
             'filter' => ['phone', 'is_sent'],
         ];
 

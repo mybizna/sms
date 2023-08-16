@@ -60,6 +60,10 @@ class Gateway extends BaseModel
     {
         $structure = [
             'table' => ['name', 'url', 'ordering', 'published'],
+            'form' => [
+                ['label' => 'Name', 'class' => 'w-full', 'fields' => ['name']],
+                ['label' => 'Contact', 'class' => 'w-1/2', 'fields' => ['url', 'ordering', 'published']],
+            ],
             'filter' => ['name', 'url', 'published'],
         ];
 

@@ -60,6 +60,10 @@ class Signature extends BaseModel
     {
         $structure = [
             'table' => ['title', 'signature', 'ordering', 'published'],
+            'form' => [
+                ['label' => 'Title', 'class' => 'w-full', 'fields' => ['title']],
+                ['label' => 'Contact', 'class' => 'w-1/2', 'fields' => ['signature', 'ordering', 'published']],
+            ],
             'filter' => ['title', 'signature', 'published'],
         ];
 

@@ -45,7 +45,7 @@ class Contact extends BaseModel
     public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->char('name', 255)->html('text');
         $this->fields->char('phone', 255)->html('text');
@@ -60,6 +60,10 @@ class Contact extends BaseModel
     {
         $structure = [
             'table' => ['name', 'phone', 'published'],
+            'form' => [
+                ['label' => 'Name', 'class' => 'w-full', 'fields' => ['name']],
+                ['label' => 'Contact', 'class' => 'w-1/2', 'fields' => ['phone', 'ordering', 'published']],
+            ],
             'filter' => ['name', 'phone', 'published'],
         ];
 
