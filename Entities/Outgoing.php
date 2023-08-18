@@ -57,14 +57,12 @@ class Outgoing extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure = [
-            'table' => ['phone', 'sms', 'is_sent'],
-            'form' => [
-                ['label' => 'Phone', 'class' => 'w-full', 'fields' => ['phone']],
-                ['label' => 'Contact', 'class' => 'w-1/2', 'fields' => [ 'sms', 'is_sent']],
-            ],
-            'filter' => ['phone', 'is_sent'],
+        $structure['table'] = ['phone', 'sms', 'is_sent'];
+        $structure['form'] = [
+            ['label' => 'Phone', 'class' => 'col-span-full', 'fields' => ['phone']],
+            ['label' => 'Contact', 'class' => 'col-span-6', 'fields' => ['sms', 'is_sent']],
         ];
+        $structure['filter'] = ['phone', 'is_sent'];
 
         return $structure;
     }

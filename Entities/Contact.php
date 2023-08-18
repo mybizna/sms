@@ -58,14 +58,12 @@ class Contact extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure = [
-            'table' => ['name', 'phone', 'published'],
-            'form' => [
-                ['label' => 'Name', 'class' => 'w-full', 'fields' => ['name']],
-                ['label' => 'Contact', 'class' => 'w-1/2', 'fields' => ['phone', 'ordering', 'published']],
-            ],
-            'filter' => ['name', 'phone', 'published'],
+        $structure['table'] = ['name', 'phone', 'published'];
+        $structure['form'] = [
+            ['label' => 'Name', 'class' => 'col-span-full', 'fields' => ['name']],
+            ['label' => 'Contact', 'class' => 'col-span-6', 'fields' => ['phone', 'ordering', 'published']],
         ];
+        $structure['filter'] = ['name', 'phone', 'published'];
 
         return $structure;
     }
