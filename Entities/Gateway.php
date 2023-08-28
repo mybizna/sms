@@ -46,7 +46,7 @@ class Gateway extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
 
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->char('name', 255)->html('text');
         $this->fields->string('url')->html('text');
         $this->fields->integer('ordering')->default(10)->html('number');
