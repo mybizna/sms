@@ -61,7 +61,7 @@ class Gateway extends BaseModel
         $structure['table'] = ['name', 'url', 'ordering', 'published'];
         $structure['form'] = [
             ['label' => 'Name', 'class' => 'col-span-full', 'fields' => ['name']],
-            ['label' => 'Contact', 'class' => 'col-span-full md:col-span-6', 'fields' => ['url', 'ordering', 'published']],
+            ['label' => 'Contact', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['url', 'ordering', 'published']],
         ];
         $structure['filter'] = ['name', 'url', 'published'];
 
