@@ -60,8 +60,8 @@ class Contact extends BaseModel
     {
         $structure['table'] = ['name', 'phone', 'published'];
         $structure['form'] = [
-            ['label' => 'Name', 'class' => 'col-span-full', 'fields' => ['name']],
-            ['label' => 'Contact', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['phone', 'ordering', 'published']],
+            ['label' => 'Contact Name', 'class' => 'col-span-full', 'fields' => ['name']],
+            ['label' => 'Contact Detail', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['phone', 'ordering', 'published']],
         ];
         $structure['filter'] = ['name', 'phone', 'published'];
 

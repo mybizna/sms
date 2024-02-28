@@ -59,8 +59,8 @@ class Outgoing extends BaseModel
     {
         $structure['table'] = ['phone', 'sms', 'is_sent'];
         $structure['form'] = [
-            ['label' => 'Phone', 'class' => 'col-span-full', 'fields' => ['sms']],
-            ['label' => 'Contact', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['phone', 'is_sent']],
+            ['label' => 'Outgoing Phone', 'class' => 'col-span-full', 'fields' => ['sms']],
+            ['label' => 'Outgoing Detail', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['phone', 'is_sent']],
         ];
         $structure['filter'] = ['phone', 'is_sent'];
 
