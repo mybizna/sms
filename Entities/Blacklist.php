@@ -16,20 +16,6 @@ class Blacklist extends BaseModel
     protected $fillable = ['contact_id'];
 
     /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['contact_id'];
-
-    /**
-     * List of tables names that are need in this model during migration.
-     *
-     * @var array<string>
-     */
-    public array $migrationDependancy = ['sms_contact'];
-
-    /**
      * The table associated with the model.
      *
      * @var string
@@ -51,19 +37,5 @@ class Blacklist extends BaseModel
     }
 
 
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
 
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 }

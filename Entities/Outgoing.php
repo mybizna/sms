@@ -16,20 +16,6 @@ class Outgoing extends BaseModel
     protected $fillable = ['phone', 'sms', 'is_sent'];
 
     /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['sms'];
-
-    /**
-     * List of tables names that are need in this model during migration.
-     *
-     * @var array<string>
-     */
-    public array $migrationDependancy = [];
-
-    /**
      * The table associated with the model.
      *
      * @var string
@@ -52,36 +38,8 @@ class Outgoing extends BaseModel
         $this->fields->tinyInteger('is_sent')->nullable()->default(0)->html('switch');
     }
 
-    /**
-     * List of structure for this model.
-     */
-    public function structure($structure): array
-    {
-        $structure['table'] = ['phone', 'sms', 'is_sent'];
-        $structure['form'] = [
-            ['label' => 'Outgoing Phone', 'class' => 'col-span-full', 'fields' => ['sms']],
-            ['label' => 'Outgoing Detail', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['phone', 'is_sent']],
-        ];
-        $structure['filter'] = ['phone', 'is_sent'];
-
-        return $structure;
-    }
 
 
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
 
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 
 }
