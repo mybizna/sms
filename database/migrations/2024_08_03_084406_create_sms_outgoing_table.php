@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('sms_outgoing', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->bigInteger('phone');
+            $table->string('sms');
+            $table->tinyInteger('is_sent')->nullable()->default(0);
+
             $table->timestamps();
         });
     }

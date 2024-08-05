@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('sms_gateway', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('name');
+            $table->string('url');
+            $table->integer('ordering')->default(10);
+            $table->tinyInteger('published')->default(true);
+
             $table->timestamps();
         });
     }

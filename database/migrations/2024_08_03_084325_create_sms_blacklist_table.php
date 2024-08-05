@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('sms_blacklist', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->foreignId('contact_id')->nullable();
+
             $table->timestamps();
         });
     }
