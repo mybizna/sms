@@ -8,12 +8,12 @@ This module allows users of the Mybizna ERP platform to easily send SMS messages
 - Use the "SMS" section of the Mybizna ERP platform to compose and send messages to individual contacts or groups.
 
 ## Requirements
-Mybizna ERP version 1.0 or above
+Mybizna ERP version 2024.1 or above
 
 ## An SMS gateway service with an API key
 Usage
 To use this module, you need to have an instance of Mybizna ERP and API key for a SMS gateway service.
-This module is compatible with Mybizna ERP version 1.0 and above
+This module is compatible with Mybizna ERP version 2024.1 and above
 You can access the source code of the module on the company's Github repository.
 ## Support
 If you have any questions or need assistance, please contact our support team. We're always happy to help!
