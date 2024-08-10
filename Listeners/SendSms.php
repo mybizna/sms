@@ -2,7 +2,7 @@
 
 namespace Modules\Sms\Listeners;
 
-use Modules\Sms\Entities\Queue;
+use Modules\Sms\Models\Queue;
 
 class SendSms
 {
