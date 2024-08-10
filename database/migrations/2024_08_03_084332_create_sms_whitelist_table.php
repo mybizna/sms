@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('sms_whitelist', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('contact_id')->nullable();
+            $table->foreignId('contact_id')->constrained('sms_contact')->onDelete('cascade')->nullable()->index('contact_id');
 
             $table->timestamps();
         });
