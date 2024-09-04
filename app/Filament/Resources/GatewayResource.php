@@ -2,9 +2,6 @@
 
 namespace Modules\Sms\Filament\Resources;
 
-use Modules\Sms\Filament\Resources\GatewayResource\Pages;
-use Modules\Sms\Filament\Resources\GatewayResource\RelationManagers;
-use Modules\Sms\Models\Gateway;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,10 +9,16 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Sms\Filament\Resources\GatewayResource\Pages;
+use Modules\Sms\Models\Gateway;
 
 class GatewayResource extends Resource
 {
     protected static ?string $model = Gateway::class;
+
+    protected static ?string $slug = 'sms/gateway';
+
+    protected static ?string $navigationGroup = 'SMS';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

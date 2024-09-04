@@ -2,9 +2,6 @@
 
 namespace Modules\Sms\Filament\Resources;
 
-use Modules\Sms\Filament\Resources\OutgoingResource\Pages;
-use Modules\Sms\Filament\Resources\OutgoingResource\RelationManagers;
-use Modules\Sms\Models\Outgoing;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,10 +9,16 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Sms\Filament\Resources\OutgoingResource\Pages;
+use Modules\Sms\Models\Outgoing;
 
 class OutgoingResource extends Resource
 {
     protected static ?string $model = Outgoing::class;
+
+    protected static ?string $slug = 'sms/outgoing';
+
+    protected static ?string $navigationGroup = 'SMS';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

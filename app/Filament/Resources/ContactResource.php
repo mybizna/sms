@@ -2,9 +2,6 @@
 
 namespace Modules\Sms\Filament\Resources;
 
-use Modules\Sms\Filament\Resources\ContactResource\Pages;
-use Modules\Sms\Filament\Resources\ContactResource\RelationManagers;
-use Modules\Sms\Models\Contact;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,10 +9,16 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Sms\Filament\Resources\ContactResource\Pages;
+use Modules\Sms\Models\Contact;
 
 class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
+
+    protected static ?string $slug = 'sms/contact';
+
+    protected static ?string $navigationGroup = 'SMS';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
