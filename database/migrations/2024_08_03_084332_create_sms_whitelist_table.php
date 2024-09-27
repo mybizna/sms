@@ -14,9 +14,14 @@ return new class extends Migration
         Schema::create('sms_whitelist', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('contact_id')->constrained('sms_contact')->onDelete('cascade')->nullable()->index('sms_whitelist_contact_id');
+            $table->foreignId('contact_id')->nullable()->constrained('sms_contact')->onDelete('set null');
+
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->onDelete('set null');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
