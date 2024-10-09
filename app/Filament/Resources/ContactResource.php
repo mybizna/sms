@@ -4,15 +4,12 @@ namespace Modules\Sms\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Sms\Filament\Resources\ContactResource\Pages;
+use Modules\Base\Filament\Resources\BaseResource;
 use Modules\Sms\Models\Contact;
 
-class ContactResource extends Resource
+class ContactResource extends BaseResource
 {
     protected static ?string $model = Contact::class;
 
@@ -82,27 +79,4 @@ class ContactResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListContacts::route('/'),
-            'create' => Pages\CreateContact::route('/create'),
-            'edit' => Pages\EditContact::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
-    }
 }

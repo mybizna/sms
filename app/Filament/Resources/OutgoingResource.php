@@ -4,15 +4,12 @@ namespace Modules\Sms\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Sms\Filament\Resources\OutgoingResource\Pages;
+use Modules\Base\Filament\Resources\BaseResource;
 use Modules\Sms\Models\Outgoing;
 
-class OutgoingResource extends Resource
+class OutgoingResource extends BaseResource
 {
     protected static ?string $model = Outgoing::class;
 
@@ -75,27 +72,4 @@ class OutgoingResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListOutgoings::route('/'),
-            'create' => Pages\CreateOutgoing::route('/create'),
-            'edit' => Pages\EditOutgoing::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
-    }
 }

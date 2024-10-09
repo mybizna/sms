@@ -4,15 +4,12 @@ namespace Modules\Sms\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Sms\Filament\Resources\SignatureResource\Pages;
+use Modules\Base\Filament\Resources\BaseResource;
 use Modules\Sms\Models\Signature;
 
-class SignatureResource extends Resource
+class SignatureResource extends BaseResource
 {
     protected static ?string $model = Signature::class;
 
@@ -79,27 +76,4 @@ class SignatureResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListSignatures::route('/'),
-            'create' => Pages\CreateSignature::route('/create'),
-            'edit' => Pages\EditSignature::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
-    }
 }
