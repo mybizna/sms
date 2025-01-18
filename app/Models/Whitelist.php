@@ -4,6 +4,8 @@ namespace Modules\Sms\Models;
 
 use Modules\Base\Models\BaseModel;
 use Modules\Sms\Models\Contact;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Whitelist extends BaseModel
 {
@@ -26,9 +28,17 @@ class Whitelist extends BaseModel
      * Add relationship to Contact
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function contact()
+    public function contact(): BelongsTo
     {
         return $this->belongsTo(Contact::class);
     }
 
+
+    public function migration(Blueprint $table)
+    {
+        $table->id();
+
+        $table->foreignId('contact_id')->nullable()->constrained(table: 'sms_contact')->onDelete('set null');
+
+    }
 }

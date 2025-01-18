@@ -3,6 +3,7 @@
 namespace Modules\Sms\Models;
 
 use Modules\Base\Models\BaseModel;
+use Illuminate\Database\Schema\Blueprint;
 
 class Signature extends BaseModel
 {
@@ -21,4 +22,15 @@ class Signature extends BaseModel
      */
     protected $table = "sms_signature";
 
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->string('title', 255);
+        $table->text('signature');
+        $table->integer('ordering')->default(10);
+        $table->tinyInteger('published')->default(true);
+
+    }
 }

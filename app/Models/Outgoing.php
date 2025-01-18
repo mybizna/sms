@@ -3,6 +3,7 @@
 namespace Modules\Sms\Models;
 
 use Modules\Base\Models\BaseModel;
+use Illuminate\Database\Schema\Blueprint;
 
 class Outgoing extends BaseModel
 {
@@ -20,4 +21,14 @@ class Outgoing extends BaseModel
      */
     protected $table = "sms_outgoing";
 
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->bigInteger('phone');
+        $table->string('sms');
+        $table->tinyInteger('is_sent')->nullable()->default(0);
+
+    }
 }
