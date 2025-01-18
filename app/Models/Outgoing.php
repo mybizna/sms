@@ -24,7 +24,7 @@ class Outgoing extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
+
 
         $table->bigInteger('phone');
         $table->string('sms');
