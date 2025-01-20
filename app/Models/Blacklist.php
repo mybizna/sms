@@ -1,11 +1,10 @@
 <?php
-
 namespace Modules\Sms\Models;
 
-use Modules\Base\Models\BaseModel;
-use Modules\Sms\Models\Contact;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Schema\Blueprint;
+use Modules\Base\Models\BaseModel;
+use Modules\Sms\Models\Contact;
 
 class Blacklist extends BaseModel
 {
@@ -32,12 +31,14 @@ class Blacklist extends BaseModel
         return $this->belongsTo(Contact::class);
     }
 
-
     public function migration(Blueprint $table): void
     {
 
+        $table->unsignedBigInteger('contact_id')->nullable();
+    }
 
-        $table->foreignId('contact_id')->nullable()->constrained(table: 'sms_contact')->onDelete('set null');
-
+    public function post_migration(Blueprint $table): void
+    {
+        $table->foreign('contact_id')->references('id')->on('sms_contact')->onDelete('set null');
     }
 }
